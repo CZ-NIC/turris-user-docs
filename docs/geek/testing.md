@@ -86,3 +86,7 @@ switched to the more experimental branch.
 switch-branch hbs
 ```
 
+!!! warning
+    Switching from a newer to an older version (for example from hbl to hbl) is possible
+    but it isn't a supported scenario. In that case, it is recommended to use a snapshot
+    and rollback (see [schnapps](./schnapps/schnapps.md))
