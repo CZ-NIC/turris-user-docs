@@ -34,6 +34,22 @@ the error, usually don't help us to identify the cause of the error.
 
 ### Using reForis
 
+If you use the reForis interface to maintain your router, you can use it to
+generate logs using _Administration → Diagnostics_ page. The modules, which
+are usually the most interesting are `disk-full`, `messages`, `dns`,
+`installed` and `network`. If the nature of the problem suggests that other
+modules could also be useful, you can check them.
+
+![reForis: Diagnostics](reforis-diagnostics-modules.png)
+
+Then press the _Generate report_ button. The process may take some time.
+When done, you can press _Download_ to download the report. Multiple reports
+may be available but they don't persist reboots.
+
+![reForis: Reports to download](reforis-diagnostics-reports.png)
+
+### Using Foris
+
 If you use the _reForis_ interface to maintain your router, you can use it to
 generate logs using _Diagnostics_ page. The modules, which are usually the most
 important are `disk_full`, `messages`, `dns`, `installed` and `network`.
