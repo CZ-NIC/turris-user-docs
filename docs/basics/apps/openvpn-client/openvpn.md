@@ -1,3 +1,7 @@
+---
+board: mox, omnia, 1.x, shield
+competency: intermediate
+---
 # OpenVPN client on Turris
 
 Starting with [Turris OS 5.1](../../tos-versions.md),
@@ -45,6 +49,8 @@ paid.
 
 1. Go to the _OpenVPN -> Client Settings_ page.
 2. Choose a client settings file and press _Upload settings_.
+
+![Upload client settings](upload.png)
 
 !!!info
     If you want to connect to your another Turris you can use the _Client
