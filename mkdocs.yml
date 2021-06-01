@@ -139,6 +139,7 @@ nav:
         - 'Wi-Fi': 'basics/reforis/wifi/reforis-wifi.md'
         - Notifications: 'basics/reforis/notifications/reforis-notifications.md'
         - Updates: 'basics/reforis/updates/reforis-updates.md'
+        - 'Storage': 'basics/reforis/storage-plugin/storage-plugin.md'
         - Screenshots: 'basics/reforis/screenshots/reforis.md'
         - 'Factory reset': 'basics/reforis/factory-reset/factory-reset.md'
         - Storage: 'basics/reforis/storage-plugin/storage-plugin.md'
