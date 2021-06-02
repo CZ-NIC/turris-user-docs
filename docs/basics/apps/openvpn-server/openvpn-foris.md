@@ -1,12 +1,15 @@
 ---
-board: shield, mox, omnia, 1.x
+board: mox, omnia, 1.x
 competency: novice
 ---
 # OpenVPN server on Turris
 
+Starting with Turris OS 3.6, you can configure OpenVPN server easily through
+web interfaces.
+
 !!! tip
-    If you use Turris OS 3.x you can configure the OpenVPN server via
-    the [Foris web interface](openvpn-foris.md).
+    If you use Turris OS 5.x you can configure the OpenVPN server via
+    the [reForis web interface](openvpn.md).
 
 ## What is OpenVPN?
 
