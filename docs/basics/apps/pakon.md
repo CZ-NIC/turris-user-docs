@@ -10,6 +10,9 @@ PaKon is a tool for monitoring the activity of devices inside a local network.
 It collects and stores information about network activity and allows you to
 view and filter records.
 
+!!! warning
+    PaKon is not available on Turris Shield.
+
 ## Details
 
 PaKon utilizes **[Suricata](https://suricata-ids.org/) - network threat
@@ -165,7 +168,7 @@ You don't have to set a proper static lease to see names in PaKon - just fill
 in the name and select MAC address. If you fill in also the IP address, you
 create a static lease - meaning that the device will always get the same IP
 address. For more details about static leases click
-[here](../luci/static_dhcp/static_dhcp.md).
+[here](../luci/static-dhcp/static-dhcp.md).
 
 ![Screenshot - LuCI Static lease](static-lease.png)
 

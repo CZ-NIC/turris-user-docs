@@ -1,6 +1,6 @@
 <script type="text/javascript">
-//<!--
 function render_changelog(changelog, element) {
+    element.innerHTML = '';
     for (let i in changelog) {
         const release = changelog[i];
         const message = release.message.split('\n');
@@ -10,43 +10,80 @@ function render_changelog(changelog, element) {
 <h5>Date of release</h5>
 <p>${release_date.toString()}</p>
 <h5>Sources</h5>
-<p>Available on <a href="https://gitlab.nic.cz/turris/turris-build/tree/${release.name}">Gitlab</a>.</p>
-<h5>Release notes</h5>`;
-        message.pop();
-        let notes='<ul>';
-        for (let line in message) {
-            console.log(message[line]);
-            const li = message[line].match(/^\s?\* (.*)/)
-            if (li) {
-                notes += '<li>' + li[1] + '</li>';
+<p>Available on <a href="https://gitlab.nic.cz/turris/os/build/tree/${release.name}">Gitlab</a>.</p>
+<h5>Release notes</h5>
+<ul id="release-notes-${release.name}"></ul>`;
+        message.map(line => {
+            const firstListItem = line.match(/^\s?\* (.*)/); // Matches first bullet list item
+            const secondListItem = line.match(/^\s+\* (.+)$/); // Matches nested bullet list item
+
+            const releaseNotesList = document.getElementById(`release-notes-${release.name}`);
+            const newListItem = document.createElement("li");
+            const newSubListItem = document.createElement("ul");
+            const firstChild = releaseNotesList.firstChild;
+
+            if (firstListItem) {
+                newListItem.innerHTML = firstListItem[1];
+                releaseNotesList.appendChild(newListItem);
             }
-        }
-        notes += '</ul>';
-        element.innerHTML += notes;
+            if (secondListItem) {
+                newListItem.innerHTML = secondListItem[1];
+                newSubListItem.appendChild(newListItem);
+                // Insert nested list item inside the first one
+                firstChild.insertAdjacentElement('beforeend', newSubListItem);
+            }
+        })
     };
 }
 
 function changelog(version, span_id) {
     const element = document.getElementById(span_id);
-	element.innerHTML = '';
-	fetch('https://gitlab.nic.cz/api/v4/projects/turris%2fturris-build/repository/tags/?search=' + version).
+	fetch('https://gitlab.nic.cz/api/v4/projects/turris%2fos%2fbuild/repository/tags/?search=' + version).
 		then(res => res.json()).
 		then((json) => {
 			render_changelog(json, element);
 	});
 }
-//-->
 </script>
 
 # Changelog
 
 Here you can find a list of all releases and release notes starting from Turris
 OS 4.0. Those releases are made from combination of
-[turris-build](https://gitlab.nic.cz/turris/turris-build) repository and
+[turris-build](https://gitlab.nic.cz/turris/os/build) repository and
 various repositories with additional packages like
-[turris-os-packages](https://gitlab.nic.cz/turris/turris-os-packages).
+[turris-os-packages](https://gitlab.nic.cz/turris/os/packages).
 In our repositories, all releases are tagged and you can read specific git
 commit hashes the release is built from.
+
+## Turris OS 5.2
+
+Turris OS 5.2 is based on top of [OpenWrt
+19.07](https://openwrt.org/releases/19.07/start) with our feed and a few patches. It
+supports [Turris MOX](../hw/mox/intro.md), [Turris Omnia](../hw/omnia/omnia.md)
+and [Turris Shield](../hw/shield/shield.md). There is also an experimental
+support for [Turris 1.x](../hw/turris-1x/turris-1x.md) routers.
+
+New features:
+
+* reForis (configuration web interface) additions
+    * Overview tab
+    * Storage plugin with option for persistent system logs
+    * Factory reset from web interface
+    * Support for Honeypot as a Service (haas.nic.cz)
+    * Add option to change hostname in reForis
+    * Fix DHCP range configuration check
+    * A few design improvements
+* WebApps: New graphical design with optional dark mode
+* Sentinel: Introduce replacement for firewall logs collector
+* Turris MOX: Update firmware for SDIO card
+* Add RIPE Atlas SW probe and common passwords as package lists
+* Automatic installation of drivers for limited amount of LTE and DVB devices
+
+### Detailed changelog
+
+<span id="tos52">Loading changelog...</span>
+<script type="text/javascript">changelog("v5.2.", "tos52");</script>
 
 ## Turris OS 5.1
 
@@ -73,11 +110,7 @@ New features:
 ### Detailed changelog
 
 <span id="tos51">Loading changelog...</span>
-<script type="text/javascript">
-//<!--
-changelog("v5.1.", "tos51");
-//-->
-</script>
+<script type="text/javascript">changelog("v5.1.", "tos51");</script>
 
 
 ## Turris OS 5.0
@@ -101,11 +134,7 @@ New features:
 ### Detailed changelog
 
 <span id="tos50">Loading changelog...</span>
-<script type="text/javascript">
-//<!--
-changelog("v5.0.", "tos50");
-//-->
-</script>
+<script type="text/javascript">changelog("v5.0.", "tos50");</script>
 
 ## Turris OS 4
 
@@ -136,8 +165,4 @@ New features:
 ### Detailed changelog
 
 <span id="tos4">Loading changelog...</span>
-<script type="text/javascript">
-//<!--
-changelog("v4.", "tos4");
-//-->
-</script>
+<script type="text/javascript">changelog("v4.", "tos4");</script>

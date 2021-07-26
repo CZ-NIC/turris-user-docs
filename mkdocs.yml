@@ -1,27 +1,96 @@
+#
+# Copyright (c) 2019-2021 CZ.NIC z.s.p.o. (http://www.nic.cz/)
+#
+# This is free software, licensed under the GNU General Public License v3.
+# See /LICENSE for more information.
+#
+
+# Project information
 site_name: Turris Documentation
-site_description: Official Turris documentation for both hardware and software
+site_url: https://docs.turris.cz/
 site_author: CZ.NIC z.s.p.o.
+site_description: Official Turris documentation for both hardware and software
+
+# Repository
+repo_url: 'https://gitlab.nic.cz/turris/user-docs'
+repo_name: 'turris/user-docs'
+edit_uri: 'https://gitlab.nic.cz/turris/user-docs/-/tree/master/docs'
+
+# Copyright
 copyright: CC-BY-SA-4.0
 
-
+# Configuration
 theme:
     name: 'material'
-    custom_dir: docs/theme
-    logo: '/theme/turris-logo.svg'
-    favicon: '/theme/favicon.ico'
-    font: false
+    custom_dir: 'docs/theme'
+    palette:
+        - media: "(prefers-color-scheme: light)" # automatically set the color palette to the user's system preference
+          scheme: turris
+          toggle:
+            icon: material/toggle-switch-off-outline
+            name: Switch to dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          toggle:
+            icon: material/toggle-switch
+            name: Switch to light mode
     language: 'en'
-    scheme: preference
     features:
-      - navigation.instant
-    static_templates:
-      - 404.html
+        - navigation.instant
+    font: false
+    favicon: 'theme/img/favicon.ico'
+    logo: 'theme/img/turris-logo.svg'
 
+# Extra stylesheets
 extra_css:
-  - theme/turris.css
+    - 'theme/css/turris.css'
 
+# Plugins
+plugins:
+    - search:
+        lang: ['en']
+        prebuild_index: False
+    - git-revision-date:
+        modify_md: False
+    - include-markdown:
+    - redirects:
+        redirect_maps:
+            'basics/common_errors.md': 'basics/common-errors.md'
+            'basics/first-setup/mox_cpu_only.md': 'basics/first-setup/mox-cpu-only.md'
+            'basics/first-setup/mox_first_setup_warning.md': 'basics/first-setup/mox-first-setup-warning.md'
+            'basics/first-setup/mox_first_setup.md': 'basics/first-setup/mox-first-setup.md'
+            'basics/first-setup/shield_first_setup.md': 'basics/first-setup/shield-first-setup.md'
+            'basics/first-setup/simple_setup.md': 'basics/first-setup/simple-setup.md'
+            'basics/foris/wan/foris_wan.md': 'basics/foris/wan/foris-wan.md'
+            'basics/luci/static_dhcp/static_dhcp.md': 'basics/luci/static-dhcp/static-dhcp.md'
+            'basics/luci/vlan/luci_vlan.md': 'basics/luci/vlan/luci-vlan.md'
+            'basics/tos_versions.md': 'basics/tos-versions.md'
+            'geek/contributing/pull_request.md': 'geek/contributing/pull-request.md'
+            'geek/tos3_migration.md': 'geek/tos3-migration.md'
+            'hw/mox/rescue_modes.md': 'hw/mox/rescue-modes.md'
+            'hw/mox/sets/feature_list.md': 'hw/mox/sets/feature-list.md'
+            'hw/mox/sets/generic_mox.md': 'hw/mox/sets/generic-mox.md'
+            'hw/omnia/rescue_modes.md': 'hw/omnia/rescue-modes.md'
+    - minify:
+        minify_html: true
+        htmlmin_opts:
+            remove_comments: true
 
+# Customization
+extra:
+    social:
+        - icon: 'fontawesome/solid/globe'
+          link: 'https://turris.cz'
+        - icon: 'fontawesome/brands/gitlab'
+          link: 'https://gitlab.nic.cz/turris'
+        - icon: 'fontawesome/brands/github'
+          link: 'https://github.com/CZ-NIC'
+        - icon: 'fontawesome/brands/twitter'
+          link: 'https://twitter.com/turris_cz'
+
+# Extensions
 markdown_extensions:
+    - mdlightbox
     - meta
     - markdown_include.include:
         base_path: docs
@@ -40,71 +109,71 @@ markdown_extensions:
     - admonition
     - pyembed.markdown
 
-plugins:
-    - search:
-        lang: ['en']
-        prebuild_index: False
-    - git-revision-date:
-        modify_md: False
-
-
-extra:
-  social:
-    - icon: 'fontawesome/solid/globe'
-      link: 'https://turris.cz'
-    - icon: 'fontawesome/brands/gitlab'
-      link: 'https://gitlab.nic.cz/turris'
-    - icon: 'fontawesome/brands/github'
-      link: 'https://github.com/CZ-NIC'
-    - icon: 'fontawesome/brands/twitter'
-      link: 'https://twitter.com/turris_cz'
-
+# Page tree
 nav:
 - Introduction: 'index.md'
 - First setup:
-    - 'MOX': 'basics/first-setup/mox_first_setup.md'
-    - 'Shield': 'basics/first-setup/shield_first_setup.md'
-    - 'Turris 1.X and Omnia': 'basics/first-setup/simple_setup.md'
+    - 'MOX': 'basics/first-setup/mox-first-setup.md'
+    - 'Shield': 'basics/first-setup/shield-first-setup.md'
+    - 'Turris 1.X and Omnia': 'basics/first-setup/simple-setup.md'
+    - 'Ethernetless configuration': 'basics/first-setup/ethernetless.md'
 - Software:
+    - 'Landing page': 'basics/landing-page.md'
     - Data Collection:
         - Introduction: 'basics/collect/collect.md'
         - Dynamic Firewall: 'basics/collect/dynfw/collect-dynfw.md'
+        - HaaS: 'basics/collect/haas.md'
         - Setup: 'basics/collect/setup.md'
+        - Setup on Shield: 'basics/collect/setup-shield.md'
     - Foris:
+        - About: 'basics/foris/intro.md'
         - 'Secure access': 'basics/foris/https/https.md'
         - LAN: 'basics/foris/lan/foris-lan.md'
-        - WAN: 'basics/foris/wan/foris_wan.md'
+        - WAN: 'basics/foris/wan/foris-wan.md'
         - DNS: 'basics/foris/dns/foris-dns.md'
         - 'Guest network': 'basics/foris/guest-network/guest-network.md'
         - 'Storage': 'basics/foris/storage-plugin/storage-plugin.md'
     - reForis:
         - About: 'basics/reforis/intro.md'
+        - DNS: 'basics/reforis/dns/reforis-dns.md'
+        - 'Wi-Fi': 'basics/reforis/wifi/reforis-wifi.md'
+        - Notifications: 'basics/reforis/notifications/reforis-notifications.md'
+        - Updates: 'basics/reforis/updates/reforis-updates.md'
         - Screenshots: 'basics/reforis/screenshots/reforis.md'
+        - 'Factory reset': 'basics/reforis/factory-reset/factory-reset.md'
+        - Storage: 'basics/reforis/storage-plugin/storage-plugin.md'
+        - Hostname: 'basics/reforis/hostname/hostname.md'
     - LuCI:
-        - Introduction: basics/luci/luci.md
-        - Static IP: basics/luci/static_dhcp/static_dhcp.md
-        - VLAN: basics/luci/vlan/luci_vlan.md
+        - Introduction: 'basics/luci/luci.md'
+        - Static IP: 'basics/luci/static-dhcp/static-dhcp.md'
+        - VLAN: 'basics/luci/vlan/luci-vlan.md'
     - Applications:
-        - 'Netmetr': 'basics/apps/netmetr.md'
+        - 'NetMetr': 'basics/apps/netmetr.md'
         - 'Nextcloud': 'geek/nextcloud/nextcloud.md'
         - 'OpenVPN server': 'basics/apps/openvpn-server/openvpn.md'
         - 'OpenVPN client': 'basics/apps/openvpn-client/openvpn.md'
         - 'PaKon': 'basics/apps/pakon.md'
         - 'Sentinel': 'basics/apps/sentinel.md'
+        - 'Atlas probe': 'basics/apps/atlas.md'
     - Advanced:
         - 'LXC': 'geek/lxc/lxc.md'
         - 'Netboot': 'basics/apps/netboot.md'
         - 'Schnapps': 'geek/schnapps/schnapps.md'
+        - 'Btrfs migration': 'geek/btrfs_turris1x.md'
+        - 'Netdata': 'geek/netdata/netdata.md'
     - 'OS versions':
-        - Versions: 'basics/tos_versions.md'
+        - Versions: 'basics/tos-versions.md'
         - Changelog: 'basics/changelog.md'
         - 'Early access': 'geek/testing.md'
-        - '3.x migration': 'geek/tos3_migration.md'
+        - '3.x migration': 'geek/tos3-migration.md'
+    - 'Security':
+        - 'Passwords': 'security/passwords.md'
+        - 'Password filter': 'security/common-passwords.md'
     - Contributing:
         - Overview: 'geek/contributing/overview.md'
         - Translation: 'geek/contributing/translation.md'
         - Issues: 'geek/contributing/issues.md'
-        - "Pull requests": 'geek/contributing/pull_request.md'
+        - "Pull requests": 'geek/contributing/pull-request.md'
         - "Coding style": 'geek/contributing/style.md'
 - Hardware:
     - Models: 'basics/models.md'
@@ -132,11 +201,14 @@ nav:
         - About: 'hw/shield/shield.md'
         - Screenshots: 'hw/shield/screenshots.md'
     - Turris 1.X: 'hw/turris-1x/turris-1x.md'
+    - 'Wi-Fi coverage': 'hw/wifi.md'
 - Troubleshooting:
-    - 'Common errors': 'basics/common_errors.md'
+    - 'Common errors': 'basics/common-errors.md'
     - Rescue modes:
-        - 'MOX': 'hw/mox/rescue_modes.md'
-        - 'Omnia': 'hw/omnia/rescue_modes.md'
+        - 'MOX': 'hw/mox/rescue-modes.md'
+        - 'Omnia': 'hw/omnia/rescue-modes.md'
+        - 'Shield': 'hw/shield/rescue-modes.md'
+        - 'Turris 1.X': 'hw/turris-1x/factory-reset.md'
     - MOX MicroSD: 'hw/mox/microsd.md'
     - 'Serial connection': 'hw/serial.md'
     - 'Serial boot':

@@ -43,18 +43,23 @@ currently operate [Telnet](https://en.wikipedia.org/wiki/Telnet),
 Minipots. The entered user/password combination along with the attacker's IP
 address is collected by the software.
 
+!!! important
+    Turris Minipot may be falsely detected as a vulnerable/insecure service.
+    See the [setup page](setup.md#important-note-about-internet-service-providers)
+    for details.
+
 ### HaaS - Honeypot as a Service
 
-By using HaaS and installing the HaaS proxy application your router becomes able
-to forward traffic incoming from WAN port 22 (commonly used for SSH) to the HaaS
-server located in our headquarters. The HaaS server, powered by Cowrie, is a
-full-fledged honeypot. As well, it is able to record the user/password combination
-(like Minipots do) and in addition it is able to simulate a real device and
-record the executed commands.
+HaaS is a publicly available service which uses SSH Honeypot in order to catch
+the pieces of information about the attacker's credentials, behavior and so on.
 
-A big advantage is that your router stays safe all the time because all
-communications are redirected to our server and nothing is done on the router
-itself.
+More information including set up manual is available on the separate
+[HaaS page](haas.md).
+
+!!! important
+    HaaS may be falsely detected as a vulnerable/insecure service. See the
+    [setup page](setup.md#important-note-about-internet-service-providers)
+    for details.
 
 ### Turris survey
 

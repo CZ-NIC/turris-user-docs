@@ -87,7 +87,7 @@ Turris declaration that _We believe in open-source_ is not just empty statement,
 we really believe in open-source. You can modify code and submit it back. This is
 power of open-source. Together we can make Turris the best device there is.
 
-Please read [guide on how to submit pull request](pull_request.md) and
+Please read [guide on how to submit pull request](pull-request.md) and
 [Turris project coding style](style.md).
 
 !!! tip
@@ -105,7 +105,7 @@ code to the upstream repository.
 
 #### From source code
 
-All packages built for Turris OS are maintained in the [Turris OS packages](https://gitlab.nic.cz/turris/turris-os-packages)
+All packages built for Turris OS are maintained in the [Turris OS packages](https://gitlab.nic.cz/turris/os/packages)
 project on our GitLab. Please use this directions to determine whether
 a package is developed by the Turris Team or by the upstream.
 

@@ -13,6 +13,9 @@ possibilities which can be enabled using config files.
 
 LuCI uses UCI which is meant to centralize the configuration of OpenWrt.
 
+!!! warning
+    LuCI is not available on Turris Shield.
+
 ## What is UCI?
 
 From [UCI docs](https://openwrt.org/docs/guide-user/base-system/uci):
@@ -28,5 +31,5 @@ and network configuration tool.
 
 Although, there is a set of advanced administration requirements which are only possible to get done with LuCI. Such as
 
-- [static IP addresses assignment](static_dhcp/static_dhcp.md)
-- [VLAN configuration](vlan/luci_vlan.md)
+- [static IP addresses assignment](static-dhcp/static-dhcp.md)
+- [VLAN configuration](vlan/luci-vlan.md)
