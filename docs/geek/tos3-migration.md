@@ -44,7 +44,7 @@ Turris OS 3.x.
   yet available and so you have to switch between SFP and metallic manually. To do
   so you can run following command:
   ```
-  ln -sf armada-385-turris-omnia-sfp.dtb /boot/dtb
+  ln -sf /boot/armada-385-turris-omnia-sfp.dtb /boot/dtb
   ```
   To switch to metallic you just have to use `phy` instead of `sfp` in this
   command. Initial switch is performed as part of migration so you have to care
