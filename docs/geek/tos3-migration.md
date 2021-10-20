@@ -58,10 +58,10 @@ Turris OS 3.x.
 
 
 ## Automatic migration
-Automatic migration is in progress but not all routers get it at the same time.
+Automatic migration is in progress, but not all routers get it at the same time.
 Only subset of routers gets migrated at a time, so our support can react on any
-issues that you might have in time. If your router is not automatically migrated
-you can still trigger it manually, please continue reading this article.
+issues that you might have in time. If your router is not automatically migrated,
+you can still trigger it manually. Please continue reading this article.
 
 
 ## Migration considerations
