@@ -59,7 +59,7 @@ Turris OS 3.x.
 
 ## Automatic migration
 Automatic migration is in progress, but not all routers get it at the same time.
-Only subset of routers gets migrated at a time, so our support can react on any
+Only a subset of routers gets migrated at a time, so our support can react to any
 issues that you might have in time. If your router is not automatically migrated,
 you can still trigger it manually. Please continue reading this article.
 
@@ -150,11 +150,11 @@ This happens because you had installed some package that is no longer available
 in Turris OS. This is intended as a protection of functionality you set up.
 
 To recover updater functionality you have to decide what to do. You should
-remove the problematic package or replace it with alternative.
+remove the problematic package or replace it with an alternative.
 
-If you are an advanced user you can also investigate files in directory
-`/etc/updater/conf.d` and check content of any file you created as well as
-content of `/etc/updater/conf.d/opkg-auto.lua`. You should remove any
+If you are an advanced user you can also investigate files in the directory
+`/etc/updater/conf.d` and check the content of any file you created as well as
+the content of `/etc/updater/conf.d/opkg-auto.lua`. You should remove any
 unnecessary `Install` and `Uninstall` lines.
 
 You can verify updater's functionality by checking for updates in reForis or
@@ -168,7 +168,7 @@ was originally `turris-btrfs` and now is `turris1x-btrfs`. Old package with
 removal sends this message and it is removed because it is replaced by new one.
 
 This is just false warning but just to be sure check that you have
-`turris1x-btrfs` package installed in our system before reboot.
+`turris1x-btrfs` package installed in our system before rebooting.
 
 ##### Transmission and other services are disabled
 Some services, such as transmission, can be disabled during migration and not
