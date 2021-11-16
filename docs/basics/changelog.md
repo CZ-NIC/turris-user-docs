@@ -59,7 +59,7 @@ commit hashes the release is built from.
 ## Turris OS 5.3
 
 
-Turris OS 5.2 is based on top of [OpenWrt
+Turris OS 5.3 is based on top of [OpenWrt
 19.07](https://openwrt.org/releases/19.07/start) with our feed and a few
 patches. It supports [Turris MOX](../hw/mox/intro.md), [Turris
 Omnia](../hw/omnia/omnia.md), [Turris Shield](../hw/shield/shield.md) and
