@@ -69,7 +69,7 @@ New features:
 
 * Sentinel improvements (the ability to control and see state of intrusion
   detection tools)
-* Foris and reForis starts on demand
+* Foris and reForis start on demand
 
 ### Detailed changelog
 
